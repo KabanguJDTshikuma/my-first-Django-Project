@@ -6,21 +6,12 @@
         <div>
             <h1><a href="">Django Girls Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.1.2017, 12:14</p>
-            <h2><a href="">My first post</a> </h2>
-            <p>There's a secret that many of the world's most successful and inspiring people know.
-            This secret is that whether you want to increase your income, meet your soul mate,
-            transform your current relationship or hit any other goal in any other area of your lif..
-            It's your mindset that will either make or break your success!</p>
-        </div>
-
-        <div>
-            <p>published: 15.1.2017</p>
-            <h2><a href="">My second post</a> </h2>
-            <p>Your internal belief system about who you are, what you're capable of and what you think
-            you deserve will either.</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
